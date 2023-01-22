@@ -1,25 +1,18 @@
+Valores = list(map(float,input().split(" ")))
+n = len(Valores)
+soma = 0.0
 
-a = input().split(" ")
-n = len(a)
-soma = 0
-var = 0
 
-lista_floatada = []
-for i in a:
-    i = float(i)
-    lista_floatada.append(i)
-
-for i in lista_floatada:
+for i in Valores:
     soma += i
 
 media = soma/n
+memoria = 0.0 #Memoria para guardar os valores do numerador da variância
 
-for i in lista_floatada:
-    var += ((media - i)**2)
+for i in Valores:
+    memoria += ((media - i)**2)
 
-k = (var/(n-1))**(1/2)
+k = (memoria/(n-1))**(1/2) #Raiz da variância, a qual é o desvio padrão
 
-print(n)
-print(var)
-print(media)
-print(f'dvpad = {k:.3f}')
+
+print(f'Desvio Padrão = {k:.3f}') #Retorna o desvio com três casas dacimais
